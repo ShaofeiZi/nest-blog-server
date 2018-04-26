@@ -10,7 +10,9 @@ export class UserService {
     }
 
     async create(user: UserEntity) {
-        console.log(user)
         return await this.UserRepository.persist(user);
+    }
+    async find(user: UserEntity){
+        return await this.UserRepository.findAndCount(user);
     }
 }

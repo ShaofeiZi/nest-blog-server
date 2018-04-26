@@ -11,7 +11,7 @@ export class ArticlesController {
     }
 
     @Get()
-    findAll(): Promise<CreateArtclesDto[]> {
+    findAll(): Promise<articles[]> {
         return this.articlesService.findAll();
     }
 
@@ -22,7 +22,7 @@ export class ArticlesController {
 
     @Post()
     @HttpCode(200)
-    async create(@Body() articles: Artcles) {
+    async create(@Body() articles: articles) {
        return  this.articlesService.create(articles).then(
             (data)=>{
                 return data

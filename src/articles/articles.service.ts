@@ -11,15 +11,15 @@ export class ArticlesService {
     private readonly articleRepository: Repository<articles>,) {
     }
 
-    async findAll(): Promise<CreateArtclesDto[]> {
+    async findAll(): Promise<articles[]> {
         return await this.articleRepository.find();
     }
 
-    async create(articles: CreateArtclesDto) {
+    async create(articles: articles) {
         return await this.articleRepository.persist(articles);
     }
 
-    async findOne(id: string): Promise<CreateArtclesDto> {
+    async findOne(id: string): Promise<articles> {
         return await this.articleRepository.findOneById(id)
     }
 }
