@@ -17,7 +17,7 @@ export class UserEntity {
 
     @ApiModelProperty({type:String,description:'Email',example:'q@q.c'})
     @IsString()
-    @Column()
+    @Column({unique:true})
     readonly email?: string;
 
     @ApiModelProperty({type:String,description:'密码',example:'asdfads'})

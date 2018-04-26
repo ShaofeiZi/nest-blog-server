@@ -15,8 +15,4 @@ export class UserClass {
     @IsString()
     readonly password: string;
 
-    @ApiModelProperty({type:Boolean,description:'是否激活',default:'true'})
-    @IsBoolean()
-    readonly publish: boolean;
-
 }

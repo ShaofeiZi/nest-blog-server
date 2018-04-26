@@ -8,8 +8,10 @@ export class UserService {
     constructor(@InjectRepository(UserEntity)
                 private readonly UserRepository: Repository<UserEntity>,) {
     }
-
     async create(user: UserEntity) {
+        return await this.UserRepository.persist(user);
+    }
+    async put(user: UserEntity) {
         return await this.UserRepository.persist(user);
     }
     async find(user: UserEntity){

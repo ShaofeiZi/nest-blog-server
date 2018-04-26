@@ -12,7 +12,7 @@ import { UserModule } from '../user/user.module';
 @Module({
   imports: [UserModule],
   components: [AuthService, JwtStrategy],
-  controllers: [AuthController],
+  // controllers: [AuthController],
 })
 export class AuthModule implements NestModule {
   public configure(consumer: MiddlewaresConsumer) {

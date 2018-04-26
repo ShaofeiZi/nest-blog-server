@@ -1,22 +1,22 @@
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
-export class articles {
+export class ArticlesEntity {
   @PrimaryGeneratedColumn()
-  id: number;
+  id?: number;
 
   @Column({ length: 500 })
-  title: string;
+  title?: string;
 
-  @Column('text') content: string;
+  @Column('text') content?: string;
 
-  @Column('text') tag: string;
+  @Column('text') tag?: string;
 
-  @Column({default:false}) publish: boolean;
+  @Column({default:false}) publish?: boolean;
 
-  @Column() createTime: Date;
+  @Column() createTime?: String;
 
-  @Column() lastEditTime: Date;
+  @Column() lastEditTime?: String;
 
-  @Column() versionKey: number;
+  @Column() versionKey?: number;
 }

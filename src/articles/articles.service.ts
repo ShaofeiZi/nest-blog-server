@@ -1,25 +1,30 @@
 import {Component} from '@nestjs/common';
 import {InjectRepository} from '@nestjs/typeorm';
 import {Repository} from 'typeorm';
-import {articles} from './articles.entity';
+import {ArticlesEntity} from './articles.entity';
 import {CreateArtclesDto} from '../dto/create-articles.dto'
 import {Artcles} from "../interfaces/articles.interface";
+import {FindAllArticlesDto} from "../dto/findAll-articles.dto";
 
 @Component()
 export class ArticlesService {
-    constructor(@InjectRepository(articles)
-    private readonly articleRepository: Repository<articles>,) {
+    constructor(@InjectRepository(ArticlesEntity)
+                private readonly articleRepository: Repository<ArticlesEntity>,) {
     }
 
-    async findAll(): Promise<articles[]> {
-        return await this.articleRepository.find();
+    async findAll(findAllArticlesDto: FindAllArticlesDto): Promise<ArticlesEntity[]> {
+
+        return await this.articleRepository.find({
+            skip: 5,
+            take: 10,
+        });
     }
 
-    async create(articles: articles) {
+    async create(articles: ArticlesEntity) {
         return await this.articleRepository.persist(articles);
     }
 
-    async findOne(id: string): Promise<articles> {
+    async findOne(id: string): Promise<ArticlesEntity> {
         return await this.articleRepository.findOneById(id)
     }
 }
